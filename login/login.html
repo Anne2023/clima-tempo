@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/login/login.css">
+    <title>Login Page</title>
+</head>
+<body>
+
+<div id="registration-container" class="login-container">
+    <h2>Cadastrar Usuário</h2>
+    <div class="form-group">
+        <label for="newUsername">New Username:</label>
+        <input type="text" id="newUsername" placeholder="Enter new username">
+    </div>
+    <div class="form-group">
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" placeholder="Enter new password">
+    </div>
+    <div class="form-group">
+        <button onclick="registerUser()">Cadastrar Usuário</button>
+    </div>
+</div>
+
+<div id="login-container" class="login-container" style="display: none;">
+    <h2>Login</h2>
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter your username">
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password">
+    </div>
+    <div class="form-group">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Lista de usuários clicável -->
+    <h2>User List</h2>
+    <ul class="user-list" id="userList">
+        <!-- User list will be displayed here -->
+    </ul>
+
+    <!-- Detalhes do usuário -->
+    <div id="userDetails" style="display: none;">
+        <h3>User Details</h3>
+        <p><strong>Username:</strong> <span id="detailUsername"></span></p>
+        <p><strong>Password:</strong> <span id="detailPassword"></span></p>
+        <button onclick="editUser()">Editar Usuário</button>
+    </div>
+</div>
+
+<!-- Página de Edição -->
+<div id="editPage" class="login-container" style="display: none;">
+    <h2>Editar Usuário</h2>
+    <div class="form-group">
+        <label for="editUsername">Username:</label>
+        <input type="text" id="editUsername" disabled>
+    </div>
+    <div class="form-group">
+        <label for="editPassword">New Password:</label>
+        <input type="password" id="editPassword" placeholder="Enter new password">
+    </div>
+    <div class="form-group">
+        <label for="editEmail">Email:</label>
+        <input type="text" id="editEmail" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="editPhone">Phone Number:</label>
+        <input type="text" id="editPhone" placeholder="Enter phone number">
+    </div>
+    <div class="form-group">
+        <button onclick="saveEdit()">Salvar Edição</button>
+    </div>
+</div>
+
+<script>
+    function registerUser() {
+        var newUsername = document.getElementById('newUsername').value;
+        var newPassword = document.getElementById('newPassword').value;
+
+        // You can perform further actions like storing user data
+        alert('User registered!\nUsername: ' + newUsername + '\nPassword: ' + newPassword);
+
+        // Hide registration container and show login container
+        document.getElementById('registration-container').style.display = 'none';
+        document.getElementById('login-container').style.display = 'block';
+
+        // Populate and display user list
+        var userList = document.getElementById('userList');
+        var listItem = document.createElement('li');
+        listItem.textContent = newUsername;
+        listItem.innerHTML += '<button onclick="editUser(\'' + newUsername + '\')">Editar</button>';
+        userList.appendChild(listItem);
+    }
+
+    function login() {
+        // Implement your login logic here
+        alert('Login button clicked');
+    }
+
+    function showUserDetails() {
+        var userList = document.getElementById('userList');
+        var userDetails = document.getElementById('userDetails');
+        var detailUsername = document.getElementById('detailUsername');
+        var detailPassword = document.getElementById('detailPassword');
+
+        // Display user details when a user is clicked
+        userList.addEventListener('click', function (event) {
+            var selectedUser = event.target.textContent;
+
+            detailUsername.textContent = selectedUser;
+            detailPassword.textContent = getPasswordForUser(selectedUser);
+
+            userDetails.style.display = 'block';
+        });
+    }
+
+    function editUser(username) {
+        // Display the edit page with the selected username
+        document.getElementById('editPage').style.display = 'block';
+        document.getElementById('login-container').style.display = 'none';
+
+        // Populate the edit form with existing user data
+        document.getElementById('editUsername').value = username;
+    }
+
+    function saveEdit() {
+        var editedUsername = document.getElementById('editUsername').value;
+        var editedPassword = document.getElementById('editPassword').value;
+        var editedEmail = document.getElementById('editEmail').value;
+        var editedPhone = document.getElementById('editPhone').value;
+
+        // Implement logic to save the edited user data
+        alert('Changes saved!\nUsername: ' + editedUsername + '\nPassword: ' + editedPassword + '\nEmail: ' + editedEmail + '\nPhone: ' + editedPhone);
+
+        // Reset the edit form and display the login container
+        document.getElementById('editPage').style.display = 'none';
+        document.getElementById('login-container').style.display = 'block';
+    }
+
+    function getPasswordForUser(username) {
+        // Placeholder function to retrieve the password for a given username
+        // In a real application, this would involve server-side validation and database queries
+        return 'PlaceholderPassword';
+    }
+</script>
+
+</body>
+</html>
+
+
+

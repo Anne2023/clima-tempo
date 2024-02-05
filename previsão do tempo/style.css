@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/dia-de-verao-brilhante-nuvens-bonitas.jpg'); /* Substitua 'sua-imagem-de-fundo.jpg' pelo caminho da sua imagem de fundo */
+  background-size: cover;
+}
+
+.weather-container {
+  text-align: center;
+  margin: 50px;
+}
+
+.weather-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.info-item {
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid rgba(70, 130, 180, 0.7); /* Azul médio com opacidade para a cor da borda */
+  border-radius: 8px;
+  background-color: rgba(135, 206, 250, 0.5); /* Azul claro com opacidade para o fundo do item */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #4169E1; /* Azul médio para a cor do texto do rótulo */
+}
+
+.value {
+  font-size: 18px;
+  color: #1E90FF; /* Azul dodger para a cor do valor */
+}

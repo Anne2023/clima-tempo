@@ -1,0 +1,71 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #6495ED; /* Azul claro para o fundo do corpo */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('sua-imagem-de-fundo.jpg'); /* Substitua 'sua-imagem-de-fundo.jpg' pelo caminho da sua imagem de fundo */
+  background-size: cover;
+}
+
+.login-container {
+  background-color: #87CEFA; /* Azul claro para o contêiner de login */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #4169E1; /* Azul médio para a cor do texto do rótulo */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #4682B4; /* Azul médio para a cor da borda da entrada */
+  border-radius: 6px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.form-group button {
+  background-color: #1E90FF; /* Azul dodger para o botão */
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+  background-color: #1874CD; /* Azul médio quando o botão está em foco */
+}
+
+.user-list {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.user-list li {
+  list-style-type: none;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #B0C4DE; /* Azul claro para a cor de fundo da lista de usuários */
+  border-radius: 6px;
+  color: #333; /* Cor do texto na lista de usuários */
+}
